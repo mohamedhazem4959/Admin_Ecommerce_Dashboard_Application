@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EcommerceDashboard
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# Admin_Ecommerce_Dashboard_Application
+this is the second and last part of the ecommerce project in the front end admin dashboard application
+>>>>>>> 57ddc38b65c693f6e37ef0e752cfb24386a1f2b8
