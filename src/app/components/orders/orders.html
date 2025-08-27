@@ -1,0 +1,55 @@
+<div class="orders-component">
+  <div class="orders-layout">
+    <main class="orders-main-content">
+      <header class="orders-header">
+        <h1 class="orders-header-title">Orders Management</h1>
+      </header>
+      <div class="orders-content-area">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order._id || order._id }}</td>
+              <td>{{ order.user.name }}</td>
+              <td>{{ order.createdAt| date:'mediumDate' }}</td>
+              <td>${{ order.totalPrice| number:'1.2-2' }}</td>
+              <td>
+                <span class="orders-status-badge"
+                      [ngClass]="{
+                        'orders-status-pending': order.status === 'Pending',
+                        'orders-status-completed': order.status === 'Completed',
+                        'orders-status-cancelled': order.status === 'Cancelled'
+                      }">
+                  {{ order.status }}
+                </span>
+              </td>
+              <td>
+                <select class="orders-status-select" #statusSelect (change)="updateOrderStatus(order._id, statusSelect.value)">
+                  <option value="pending">Pending</option>
+                  <option value="preparing">preparing</option>
+                  <option value="ready-for-shipping">ready-for-shipping</option>
+                  <option value="shipped">shipped</option>
+                  <option value="recevied">recevied</option>
+                  <option value="rejected">rejected</option>
+                  <option value="canceled-by-admin">canceled-by-admin</option>
+                </select>
+              </td>
+            </tr>
+            <tr *ngIf="orders.length === 0">
+              <td colspan="6">No orders found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

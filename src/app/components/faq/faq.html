@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="header">
+        <h1>FAQ Management</h1>
+    </div>
+
+    <div class="add-section">
+        <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" class="add-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="question">Question</label>
+                    <input type="text" id="question" formControlName="question" placeholder="Enter the FAQ question...">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="answer">Answer</label>
+                    <textarea id="answer" formControlName="answer" placeholder="Enter the detailed answer..."></textarea>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="add-btn" [disabled]="!reactiveForm.valid">
+                    {{ isEditing ? 'Update FAQ' : 'Add FAQ' }}
+                </button>
+                <button *ngIf="isEditing" type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let faq of faqs">
+                    <td class="question-cell">{{ faq.question }}</td>
+                    <td class="answer-cell">{{ faq.Answer }}</td>
+                    <td class="actions-cell">
+                        <button class="edit-btn" (click)="startEdit(faq)">Edit</button>
+                        <button class="delete-btn" (click)="deleteFaq(faq._id || '')">Delete</button>
+                    </td>
+                </tr>
+                <tr *ngIf="faqs.length === 0">
+                    <td colspan="3" class="no-data">No FAQs found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
