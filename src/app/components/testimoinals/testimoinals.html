@@ -1,0 +1,62 @@
+<div class="testimonials-component">
+  <div class="products-layout">
+    <main class="products-main-content">
+      <header class="products-header">
+        <h1 class="products-header-title">Testimonials Management</h1>
+      </header>
+
+      <!-- Content Area -->
+      <div class="products-content-area">
+        <table class="products-table" *ngIf="testiminals.length > 0; else noData">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Message</th>
+              <th>Rating</th>
+              <th>Date</th>
+              <th>Actions</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of testiminals">
+              <td>
+                <div class="products-user-profile">
+                  <div class="products-user-name">
+                    {{ t.user.name | titlecase}}
+                  </div>
+                  <!-- <span>{{ t.customerName }} {{ t.customerLastName }}</span> -->
+                </div>
+              </td>
+              <td>"{{ t.message }}"</td>
+
+              <!-- ⭐ Rating Static from 1 to 5 -->
+              <td>{{ t.rating }}</td>
+
+              <td>{{ t.createdAt | date:'yyyy-MM-dd' }}</td>
+              <td>
+                <div *ngIf="t.isDeleted === true">
+                  Deleted
+                </div>
+                <div *ngIf="t.isDeleted === false">
+                  Not Deleted
+                </div>
+              </td>
+              <td>
+                <div class="products-action-buttons">
+                  <button class="products-btn-sm products-btn-delete" (click)="deletedTestimoinals(t._id)">Delete</button>
+                </div>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- لو مفيش بيانات -->
+        <ng-template #noData>
+          <p>No testimonials found.</p>
+        </ng-template>
+      </div>
+    </main>
+  </div>
+</div>

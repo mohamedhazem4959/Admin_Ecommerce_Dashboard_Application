@@ -1,0 +1,22 @@
+<div class="category-form-container">
+    <h2 class="category-form-title">Update Category</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div class="category-form-group">
+        <label for="name" class="category-form-label">Category Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter Category name" formControlName="name" class="category-form-input">
+      </div>
+
+      <div class="category-form-group">
+        <label for="description" class="category-form-label">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Enter category description" class="category-form-textarea"></textarea>
+      </div>
+
+      <div class="form-group checkbox-group">
+      <label for="isActive">Active Status</label>
+      <input type="checkbox" id="isActive" formControlName="isActive" />
+      <span class="checkmark"></span>
+    </div>
+
+      <button type="submit" class="category-form-btn">Save Category</button>
+    </form>
+</div>

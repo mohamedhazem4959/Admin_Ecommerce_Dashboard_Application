@@ -1,0 +1,141 @@
+body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f4f6fb;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+ }
+
+ .category-form-container {
+     background: #fff;
+     padding: 30px;
+     border-radius: 12px;
+     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+     width: 100%;
+     max-width: 900px;
+     margin: 0px auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: stretch;
+ }
+
+ .category-form-title {
+     text-align: center;
+     color: #4361ee;
+     margin-bottom: 20px;
+ }
+
+ .category-form-group {
+     margin-bottom: 15px;
+ }
+
+ .category-form-label {
+     display: block;
+     font-weight: bold;
+     margin-bottom: 6px;
+     color: #3a0ca3;
+ }
+
+ .category-form-input,
+ .category-form-select,
+ .category-form-textarea {
+     width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+    box-sizing: border-box;
+ }
+
+ .category-form-textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    resize: vertical;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+    box-sizing: border-box;
+}
+
+ .category-form-input:focus,
+ .category-form-select:focus,
+ .category-form-textarea:focus {
+     border: 1px solid #4361ee;
+ }
+
+ .category-form-btn {
+     width: 100%;
+     padding: 12px;
+     border: none;
+     border-radius: 8px;
+     background-color: #4361ee;
+     color: #fff;
+     font-size: 16px;
+     font-weight: bold;
+     cursor: pointer;
+     transition: background 0.3s;
+ }
+
+ .category-form-btn:hover {
+     background-color: #3a0ca3;
+ }
+
+ /* Optional: Custom select arrow for better appearance */
+ .category-form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #f8fafc url("data:image/svg+xml,%3Csvg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6l4 4 4-4' stroke='gray' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E") no-repeat right 0.75rem center/1rem 1rem;
+    min-width: 140px;
+    cursor: pointer;
+ }
+
+ .category-form-select option {
+    color: #222;
+    background: #fff;
+ }
+
+  .form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    appearance: none;           /* نشيل الشكل الافتراضي */
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4361ee;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.form-group.checkbox-group input[type="checkbox"]:checked {
+    background-color: #4361ee;
+    border-color: #4361ee;
+}
+
+.form-group.checkbox-group input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+
+
+

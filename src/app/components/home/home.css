@@ -1,0 +1,221 @@
+/* Dashboard Layout Component Styles */
+            .dashboard-component {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                background-color: var(--background-color);
+                color: var(--primary-text);
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+            }
+
+            .dashboard-layout {
+                display: flex;
+                height: 100vh;
+            }
+
+           
+
+            .dashboard-main-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .dashboard-header {
+                background: var(--surface-color);
+                border-bottom: 1px solid var(--border-color);
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .dashboard-header-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .dashboard-header-actions {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .dashboard-user-profile {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .dashboard-user-avatar {
+                width: 40px;
+                height: 40px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 600;
+            }
+
+            .dashboard-content-area {
+                flex: 1;
+                padding: 2rem;
+                overflow-y: auto;
+            }
+
+            .dashboard-stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .dashboard-stat-card {
+                background: var(--surface-color);
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(20, 20, 31, 0.08);
+                border: 1px solid var(--border-color);
+                padding: 1.5rem;
+                transition: all 0.5s;
+            }
+
+            .dashboard-stat-card:hover {
+                transform: scale(1.05);
+                box-shadow: #856404;
+            }
+
+            .dashboard-stat-value {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                margin-bottom: 0.5rem;
+            }
+
+            .dashboard-stat-label {
+                color: var(--secondary-text);
+                font-size: 0.9rem;
+            }
+
+            .dashboard-chart-placeholder {
+                height: 300px;
+                background: var(--surface-color);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--secondary-text);
+                font-size: 1.1rem;
+            }
+
+            .dashboard-btn {
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 8px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                font-size: 0.8rem;
+                background: transparent;
+                color: var(--primary-color);
+                border: 1px solid var(--primary-color);
+            }
+
+            .dashboard-btn:hover {
+                background: var(--primary-color);
+                color: white;
+            }
+
+            /* Loading and Error States */
+            .loading-state, .error-state {
+                text-align: center;
+                padding: 2rem;
+                background: var(--surface-color);
+                border-radius: 12px;
+                margin-bottom: 2rem;
+            }
+
+            .error-state {
+                background: #fee;
+                border: 1px solid #fcc;
+            }
+
+            /* Product Reports Section */
+            .dashboard-reports-section {
+                margin-top: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+                color: var(--primary-text);
+            }
+
+            .sub-section-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin: 2rem 0 1rem 0;
+                color: var(--primary-text);
+            }
+
+            .product-detail {
+                font-size: 0.8rem;
+                color: var(--secondary-text);
+                margin-top: 0.5rem;
+            }
+
+            /* Low Stock Alert Cards */
+            .stock-alert {
+                background: #fff3cd;
+                border-color: #ffeaa7;
+            }
+
+            .stock-alert .dashboard-stat-value {
+                color: #856404;
+            }
+
+            .stock-alert .dashboard-stat-label {
+                color: #856404;
+            }
+
+            .stock-alert .product-detail {
+                color: #856404;
+            }
+
+            @media (max-width: 768px) {
+                .dashboard-layout {
+                    flex-direction: column;
+                }
+
+                .dashboard-sidebar {
+                    width: 100%;
+                    height: auto;
+                    padding: 1rem;
+                }
+
+                .dashboard-sidebar-nav {
+                    display: flex;
+                    overflow-x: auto;
+                    gap: 0.5rem;
+                }
+
+                .dashboard-sidebar-nav li {
+                    margin-bottom: 0;
+                    flex-shrink: 0;
+                }
+
+                .dashboard-content-area {
+                    padding: 1rem;
+                }
+
+                .dashboard-stats-grid {
+                    grid-template-columns: 1fr;
+                }
+            }

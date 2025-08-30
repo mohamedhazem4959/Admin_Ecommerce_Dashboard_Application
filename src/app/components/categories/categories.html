@@ -1,0 +1,76 @@
+<div class="categories-component">
+    <div class="categories-layout">
+        <main class="categories-main-content">
+            <header class="categories-header">
+                <h1 class="categories-header-title">Categories Management</h1>
+                <div class="categories-header-actions">
+                    <a class="categories-btn-primary" routerLink="/addCategory">Add New Category</a>
+                </div>
+            </header>
+            <div class="categories-content-area">
+                <table class="categories-table">
+                    <thead>
+                        <tr>
+                            <th>Category Name</th>
+                            <th>Parent Category</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let category of categories">
+                            <!-- Parent Category Row -->
+                            <tr>
+                                <td><b>{{ category.name }}</b></td>
+                                <td>-</td>
+                                <td>{{ category.createdAt | date:'mediumDate' }}</td>
+                                <td>
+                                    <span class="categories-status-badge"
+                                          [ngClass]="{
+                                            'categories-status-active': !category.isDeleted,
+                                            'categories-status-draft': category.isDeleted
+                                          }">
+                                        {{ category.isDeleted ? 'Deleted' : 'Not Deleted' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="categories-action-buttons">
+                                        <button class="categories-btn-sm categories-btn-edit" [routerLink]="['/editCategory', category.route]">Edit</button>
+                                        <button class="categories-btn-sm categories-btn-delete" (click)="deleteCategory(category.route!,true)">Delete</button>
+                                        <button class="categories-btn-sm categories-btn-restore" (click)="resoteCategory(category.route!,false)">Restore</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Subcategories Rows -->
+                            <tr *ngFor="let sub of category.subcategories">
+                                <td style="padding-left: 2em;">&#8627; {{ sub.name }}</td>
+                                <td>{{ sub.parentCategory?.name }}</td>
+                                <td>{{ sub.createdAt | date:'mediumDate' }}</td>
+                                <td>
+                                    <span class="categories-status-badge"
+                                          [ngClass]="{
+                                            'categories-status-active': !sub.isDeleted,
+                                            'categories-status-draft': sub.isDeleted
+                                          }">
+                                        {{ sub.isDeleted ? 'Deleted' : 'Not Deleted' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="categories-action-buttons">
+                                        <button class="categories-btn-sm categories-btn-edit" [routerLink]="['/editCategory', sub._id]">Edit</button>
+                                        <button class="categories-btn-sm categories-btn-delete" (click)="deleteCategory(sub.route!,true)">Delete</button>
+                                        <!-- <button class="categories-btn-sm categories-btn-restore" (click)="resoteCategory(category.route!,false)">Restore</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-container>
+                        <tr *ngIf="!categories || categories.length === 0">
+                            <td colspan="5">No categories found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

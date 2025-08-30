@@ -1,0 +1,59 @@
+<div class="products-component">
+    <div class="products-layout">
+        <main class="products-main-content">
+            <header class="products-header">
+                <h1 class="products-header-title">Products Management</h1>
+                <div class="products-header-actions">
+                    <button class="products-btn-primary" routerLink="/addProduct">Add New Product</button>
+                </div>
+            </header>
+            <div class="products-content-area">
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Is Active</th>
+                            <th>Is Deleted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of products; track $index) {
+                        <tr>
+                            <td><img class="products-image" [src]="staticUrl + '/' + item.image"></td>
+                            <td>{{item.name}}</td>
+                            <td>${{item.price}}</td>
+                            <td>{{item.category?.name || 'No Category'}}</td>
+                            <td>{{item.stock}}</td>
+                            <td>
+                                <div [ngClass]="item.isActive ? 'status-active' : 'status-inactive'">
+                                    {{ item.isActive ? 'Active' : 'Inactive' }}
+                                </div>
+                            </td>
+                            <td>
+                                <div [ngClass]="item.isDeleted ? 'status-deleted' : 'status-not-deleted'">
+                                    {{ item.isDeleted ? 'Deleted' : 'Not Deleted' }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="products-action-buttons">
+                                    <button class="products-btn-sm products-btn-edit"
+                                        (click)="goToEditProduct(item.route)">Edit</button>
+                                    <button class="products-btn-sm products-btn-delete"
+                                        (click)="deleteProduct(item.route,true)">Delete</button>
+                                    <button class="products-btn-sm products-btn-restore"
+                                        (click)="restoreProduct(item.route,false)">Restore</button>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>

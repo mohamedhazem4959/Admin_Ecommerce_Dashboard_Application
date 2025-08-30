@@ -1,0 +1,72 @@
+<div class="dashboard-component">
+    <div class="dashboard-layout">
+        <main class="dashboard-main-content">
+            <header class="dashboard-header">
+                <h1 class="dashboard-header-title">Dashboard Overview</h1>
+                <div class="dashboard-header-actions">
+                </div>
+            </header>
+            
+            <div class="dashboard-content-area">
+                <div *ngIf="loading" class="loading-state">
+                    <p>Loading dashboard data...</p>
+                </div>
+                <div *ngIf="error" class="error-state">
+                    <p>{{ error }}</p>
+                </div>
+
+                <div *ngIf="!loading && !error">
+                    <div class="dashboard-stats-grid">
+                        <div class="dashboard-stat-card" *ngIf="userReport">
+                            <div class="dashboard-stat-value">{{ userReport.totalUsers }}</div>
+                            <div class="dashboard-stat-label">Total Users</div>
+                        </div>
+                        <div class="dashboard-stat-card" *ngIf="userReport">
+                            <div class="dashboard-stat-value">{{ userReport.newUsersThisMonth }}</div>
+                            <div class="dashboard-stat-label">New Users This Month</div>
+                        </div>
+
+                        <div class="dashboard-stat-card" *ngIf="salesReport">
+                            <div class="dashboard-stat-value">{{ salesReport.overall.totalOrders }}</div>
+                            <div class="dashboard-stat-label">Total Orders</div>
+                        </div>
+                        <div class="dashboard-stat-card" *ngIf="salesReport">
+                            <div class="dashboard-stat-value">${{ salesReport.overall.totalRevenue }}</div>
+                            <div class="dashboard-stat-label">Total Revenue</div>
+                        </div>
+
+                        <div class="dashboard-stat-card" *ngIf="productReport">
+                            <div class="dashboard-stat-value">{{ productReport.topProducts.length }}</div>
+                            <div class="dashboard-stat-label">Top Products</div>
+                        </div>
+                        <div class="dashboard-stat-card" *ngIf="productReport">
+                            <div class="dashboard-stat-value">{{ productReport.lowStock.length }}</div>
+                            <div class="dashboard-stat-label">Low Stock Items</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-reports-section" *ngIf="productReport">
+                        <h2 class="section-title">Product Analytics</h2>
+                        
+                        <div class="dashboard-stats-grid">
+                            <div class="dashboard-stat-card" *ngFor="let product of productReport.topProducts">
+                                <div class="dashboard-stat-value">{{ product.totalSold }}</div>
+                                <div class="dashboard-stat-label">{{ product.product.name }}</div>
+                                <div class="product-detail">Sold Units</div>
+                            </div>
+                        </div>
+
+                        <h3 class="sub-section-title">Low Stock Alert</h3>
+                        <div class="dashboard-stats-grid">
+                            <div class="dashboard-stat-card stock-alert" *ngFor="let product of productReport.lowStock">
+                                <div class="dashboard-stat-value">{{ product.stock }}</div>
+                                <div class="dashboard-stat-label">{{ product.name }}</div>
+                                <div class="product-detail">Remaining Stock</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

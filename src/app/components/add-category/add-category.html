@@ -1,0 +1,24 @@
+<div class="category-form-container">
+    <h2 class="category-form-title">Add New Category</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div class="category-form-group">
+        <label for="name" class="category-form-label">Category Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter Category name" formControlName="name" class="category-form-input">
+      </div>
+
+      <div class="category-form-group">
+        <label for="description" class="category-form-label">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Enter category description" class="category-form-textarea"></textarea>
+      </div>
+
+      <div class="category-form-group">
+        <label for="category" class="category-form-label">Parent Category</label>
+        <select id="category" formControlName="parentCategory" (change)="selectCategory($event)" class="category-form-select">
+          <option value="" disabled selected hidden>-- Select Parent Category --</option>
+          <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.name }}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="category-form-btn">Save Category</button>
+    </form>
+</div>

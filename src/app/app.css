@@ -1,0 +1,66 @@
+ :root {
+     --primary-color: #1967F7;
+     --background-color: #F5F7FA;
+     --surface-color: #FFFFFF;
+     --border-color: #E7EBF0;
+     --secondary-text: #848A97;
+     --primary-text: #141417;
+     --success-color: #10B981;
+     --warning-color: #F59E0B;
+     --error-color: #F51818;
+ }
+
+ /* Demo Navigation */
+ .component-nav {
+     display: flex;
+     gap: 1rem;
+     margin: 1rem;
+     background: var(--surface-color);
+     border-radius: 12px;
+     padding: 0.5rem;
+     border: 1px solid var(--border-color);
+     flex-wrap: wrap;
+ }
+
+ .nav-btn {
+     padding: 0.75rem 1.5rem;
+     background: none;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     font-weight: 500;
+     color: var(--secondary-text);
+     transition: all 0.2s ease;
+ }
+
+ .nav-btn.active {
+     background: var(--primary-color);
+     color: white;
+ }
+
+ .component-view {
+     display: none;
+ }
+
+ .component-view.active {
+     display: block;
+ }
+
+ .layout {
+     display: flex;
+     height: 100vh;
+     width: 100%;
+ }
+
+ app-sidebar {
+     width: 250px;
+     /* عرض الـ sidebar */
+     flex-shrink: 0;
+ }
+
+ .main-content {
+     flex: 1;
+     padding: 20px;
+     background-color: #f4f6f9;
+     overflow-y: auto;
+ }

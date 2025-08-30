@@ -1,0 +1,255 @@
+/* ===== Testimonials Page (same pattern as Products) ===== */
+
+/* Products Component Styles */
+.products-component {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.products-layout {
+  display: flex;
+  height: 100vh;
+}
+
+
+
+.products-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-header {
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.products-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.products-btn-primary {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.products-btn-primary:hover {
+  background: #1555D4;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 103, 247, 0.3);
+}
+
+.products-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.products-user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.products-btn-outline {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.products-btn-outline:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.products-content-area {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.products-table th,
+.products-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.products-table th {
+  background: var(--background-color);
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.products-table tbody tr:hover {
+  background: rgba(25, 103, 247, 0.02);
+}
+
+.products-image {
+  width: 50px;
+  height: 50px;
+  background: var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text);
+  font-size: 1.2rem;
+}
+
+.products-action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.products-btn-sm {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.products-btn-edit {
+  background: var(--primary-color);
+  color: white;
+}
+
+.products-btn-edit:hover {
+  background: #1555D4;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 103, 247, 0.3);
+}
+
+.products-btn-delete {
+  background: var(--error-color);
+  color: white;
+}
+
+.products-btn-delete:hover {
+  background: #D41515;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 24, 24, 0.3);
+}
+
+/* ===== Minimal, safe tweaks for Testimonials table ===== */
+/* 2nd column (Message) should wrap nicely */
+.products-table td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 640px;
+  color: var(--secondary-text);
+}
+
+/* 3rd column (Rating) stays compact */
+.products-table td:nth-child(3) {
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
+/* Optional helper if you use a span for rating icons */
+.products-rating {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  line-height: 1;
+}
+.products-user-name{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .products-layout {
+    flex-direction: column;
+  }
+
+  .products-sidebar {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .products-sidebar-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+  }
+
+  .products-sidebar-nav li {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .products-content-area {
+    padding: 1rem;
+  }
+
+  .products-table {
+    font-size: 0.8rem;
+  }
+
+  .products-table th,
+  .products-table td {
+    padding: 0.5rem;
+  }
+
+  .products-table td:nth-child(2) {
+    max-width: 100%;
+  }
+}
